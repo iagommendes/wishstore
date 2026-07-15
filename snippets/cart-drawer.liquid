@@ -488,6 +488,13 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
+        <div class="ws-cart-shipping" data-ws-shipping>
+          <div class="ws-cart-shipping__label" data-ws-shipping-label>Calculando frete técnico…</div>
+          <div class="ws-cart-shipping__track" aria-hidden="true">
+            <span class="ws-cart-shipping__bar" data-ws-shipping-bar></span>
+          </div>
+        </div>
+
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -578,15 +585,19 @@
           <button
             type="submit"
             id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
+            class="cart__checkout-button button ws-btn-accent"
             name="checkout"
             form="CartDrawer-Form"
+            data-ws-checkout
             {% if cart == empty %}
               disabled
             {% endif %}
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+          <p class="ws-cart-checkout-hint">
+            Wishstore valida o carrinho no navegador antes de redirecionar ao checkout Shopify.
+          </p>
         </div>
       </div>
     </div>

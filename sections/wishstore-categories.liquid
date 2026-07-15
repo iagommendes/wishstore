@@ -1,0 +1,144 @@
+{{ 'wishstore.css' | asset_url | stylesheet_tag }}
+
+<section id="WishstoreCategories-{{ section.id }}" class="ws-cats color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="ws-cats__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="ws-cats__title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="ws-cats__subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ws-cats__grid">
+      {%- for block in section.blocks -%}
+        <a
+          class="ws-cat__item"
+          {{ block.shopify_attributes }}
+          {% if block.settings.link != blank %}
+            href="{{ block.settings.link }}"
+          {% else %}
+            href="{{ routes.all_products_collection_url }}"
+          {% endif %}
+        >
+          <div>
+            {%- if block.settings.code != blank -%}
+              <p class="ws-cat__code">{{ block.settings.code | escape }}</p>
+            {%- endif -%}
+            <h3 class="ws-cat__label">{{ block.settings.label | escape }}</h3>
+            {%- if block.settings.meta != blank -%}
+              <p class="ws-cat__meta">{{ block.settings.meta | escape }}</p>
+            {%- endif -%}
+          </div>
+          <span class="ws-cat__cta">{{ section.settings.cta_label | escape }} →</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wishstore Categories",
+  "tag": "section",
+  "class": "section-wishstore-categories",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Departamentos"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Supporting text",
+      "default": "Navegue por grids de produto com o que importa: performance, conectividade e build."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Item CTA",
+      "default": "Abrir categoria"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "code",
+          "label": "Code",
+          "default": "01 / HW"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Smartphones"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Chipset · Display · Câmera"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wishstore Categories",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "code": "01 / MOBILE",
+            "label": "Smartphones",
+            "meta": "Chipset · Display · Bateria"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "code": "02 / AUDIO",
+            "label": "Fones Bluetooth",
+            "meta": "ANC · Latency · Battery"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "code": "03 / GPU",
+            "label": "Placas de vídeo",
+            "meta": "VRAM · Clock · TDP"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "code": "04 / WEAR",
+            "label": "Wearables",
+            "meta": "Sensors · GPS · Health"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

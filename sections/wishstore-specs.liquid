@@ -1,0 +1,65 @@
+{{ 'wishstore.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign product_ref = product
+  if section.settings.product != blank
+    assign product_ref = section.settings.product
+  endif
+-%}
+
+<section
+  id="WishstoreSpecs-{{ section.id }}"
+  class="ws-specs color-{{ section.settings.color_scheme }} gradient"
+>
+  <div class="page-width">
+    <div class="ws-specs__header">
+      <h2 class="ws-specs__title">{{ section.settings.heading | escape }}</h2>
+      <p class="ws-specs__badge">{{ section.settings.badge | escape }}</p>
+    </div>
+
+    {%- if product_ref == blank -%}
+      <p class="ws-specs__empty">Selecione um produto no Theme Editor ou use esta section na página de produto.</p>
+    {%- else -%}
+      {% render 'wishstore-product-specs', product: product_ref %}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wishstore Specs",
+  "tag": "section",
+  "class": "section-wishstore-specs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Especificações técnicas"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "SPEC SHEET"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Leave empty on the product template to use the current product."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wishstore Specs"
+    }
+  ]
+}
+{% endschema %}

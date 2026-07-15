@@ -20,7 +20,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "square"
           }
         },
         "quantity_selector": {
@@ -30,11 +30,20 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "description": {
           "type": "description"
+        },
+        "collapsible_specs": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Highlights técnicos",
+            "icon": "check_mark",
+            "content": "<p>Consulte a tabela de especificações abaixo para chipset, memória, conectividade e garantia. Edite o metafield custom.specifications no Admin para dados por produto.</p>",
+            "page": ""
+          }
         },
         "share": {
           "type": "share",
@@ -51,22 +60,31 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "collapsible_specs",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "wishstore_specs": {
+      "type": "wishstore-specs",
+      "settings": {
+        "heading": "Especificações técnicas",
+        "badge": "SPEC SHEET",
+        "color_scheme": "scheme-1"
       }
     },
     "disclosures": {
@@ -79,7 +97,7 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "Também no laboratório",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -87,16 +105,17 @@
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 48,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
+    "wishstore_specs",
     "disclosures",
     "related-products"
   ]
