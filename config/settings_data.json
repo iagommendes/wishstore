@@ -6,63 +6,63 @@
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#FFFFFF",
-            "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#FFFFFF",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "background": "#0B0E14",
+            "background_gradient": "linear-gradient(180deg, #0B0E14 0%, #101722 100%)",
+            "text": "#E8EEF8",
+            "button": "#1EE6B2",
+            "button_label": "#070A10",
+            "secondary_button_label": "#1EE6B2",
+            "shadow": "#000000"
           }
         },
         "scheme-2": {
           "settings": {
-            "background": "#F3F3F3",
+            "background": "#151D2C",
             "background_gradient": "",
-            "text": "#121212",
-            "button": "#121212",
-            "button_label": "#F3F3F3",
-            "secondary_button_label": "#121212",
-            "shadow": "#121212"
+            "text": "#E8EEF8",
+            "button": "#1EE6B2",
+            "button_label": "#070A10",
+            "secondary_button_label": "#E8EEF8",
+            "shadow": "#000000"
           }
         },
         "scheme-3": {
           "settings": {
-            "background": "#242833",
+            "background": "#070A10",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#000000",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#E8EEF8",
+            "button": "#E8EEF8",
+            "button_label": "#070A10",
+            "secondary_button_label": "#1EE6B2",
+            "shadow": "#000000"
           }
         },
         "scheme-4": {
           "settings": {
-            "background": "#121212",
+            "background": "#1EE6B2",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#121212",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#070A10",
+            "button": "#070A10",
+            "button_label": "#1EE6B2",
+            "secondary_button_label": "#070A10",
+            "shadow": "#000000"
           }
         },
         "scheme-5": {
           "settings": {
-            "background": "#334FB4",
+            "background": "#1A2436",
             "background_gradient": "",
-            "text": "#FFFFFF",
-            "button": "#FFFFFF",
-            "button_label": "#334FB4",
-            "secondary_button_label": "#FFFFFF",
-            "shadow": "#121212"
+            "text": "#E8EEF8",
+            "button": "#4F8CFF",
+            "button_label": "#070A10",
+            "secondary_button_label": "#A8C4FF",
+            "shadow": "#000000"
           }
         }
       },
-      "type_header_font": "assistant_n4",
-      "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_header_font": "space_grotesk_n7",
+      "heading_scale": 110,
+      "type_body_font": "ibm_plex_sans_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
@@ -95,8 +95,8 @@
       "card_image_padding": 0,
       "card_text_alignment": "left",
       "card_color_scheme": "scheme-2",
-      "card_border_thickness": 0,
-      "card_border_opacity": 10,
+      "card_border_thickness": 1,
+      "card_border_opacity": 20,
       "card_corner_radius": 0,
       "card_shadow_opacity": 0,
       "card_shadow_horizontal_offset": 0,
@@ -154,9 +154,9 @@
       "badge_position": "bottom left",
       "badge_corner_radius": 40,
       "sale_badge_color_scheme": "scheme-4",
-      "sold_out_badge_color_scheme": "scheme-3",
-      "brand_headline": "",
-      "brand_description": "<p></p>",
+      "sold_out_badge_color_scheme": "scheme-5",
+      "brand_headline": "Wishstore",
+      "brand_description": "<p>Eletrônicos com foco em especificação e performance.</p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
@@ -171,11 +171,11 @@
       "predictive_search_show_vendor": false,
       "predictive_search_show_price": false,
       "currency_code_enabled": true,
-      "cart_type": "notification",
-      "show_vendor": false,
-      "show_cart_note": false,
+      "cart_type": "drawer",
+      "show_vendor": true,
+      "show_cart_note": true,
       "cart_drawer_collection": "",
-      "cart_color_scheme": "scheme-1",
+      "cart_color_scheme": "scheme-2",
       "sections": {
         "main-password-header": {
           "type": "main-password-header",

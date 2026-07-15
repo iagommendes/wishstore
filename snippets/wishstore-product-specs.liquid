@@ -1,0 +1,99 @@
+{%- comment -%}
+  Renders a technical specs table for Wishstore PDP.
+  Priority:
+  1. product.metafields.custom.specifications (multi-line "Label: Value")
+  2. product.metafields.descriptors.subtitle lines (fallback-ish)
+  3. Built-in product facts (vendor, type, sku, weight, barcode, tags)
+{%- endcomment -%}
+
+{%- liquid
+  assign specs_raw = product.metafields.custom.specifications.value | default: product.metafields.custom.specifications
+  assign has_custom_specs = false
+  if specs_raw != blank
+    assign has_custom_specs = true
+  endif
+-%}
+
+<div class="ws-specs__wrap">
+  {%- if has_custom_specs -%}
+    <table class="ws-specs__table">
+      <tbody>
+        {%- assign lines = specs_raw | newline_to_br | split: '<br />' -%}
+        {%- for line in lines -%}
+          {%- assign clean = line | strip_html | strip -%}
+          {%- if clean contains ':' -%}
+            {%- assign parts = clean | split: ':' -%}
+            {%- assign label = parts | first | strip -%}
+            {%- assign value = clean | remove_first: label | remove_first: ':' | strip -%}
+            {%- if label != blank and value != blank -%}
+              <tr>
+                <th scope="row">{{ label | escape }}</th>
+                <td>{{ value | escape }}</td>
+              </tr>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </tbody>
+    </table>
+  {%- else -%}
+    <table class="ws-specs__table">
+      <tbody>
+        {%- if product.vendor != blank -%}
+          <tr>
+            <th scope="row">Fabricante</th>
+            <td>{{ product.vendor | escape }}</td>
+          </tr>
+        {%- endif -%}
+        {%- if product.type != blank -%}
+          <tr>
+            <th scope="row">Categoria</th>
+            <td>{{ product.type | escape }}</td>
+          </tr>
+        {%- endif -%}
+        {%- if product.selected_or_first_available_variant.sku != blank -%}
+          <tr>
+            <th scope="row">SKU</th>
+            <td>{{ product.selected_or_first_available_variant.sku | escape }}</td>
+          </tr>
+        {%- endif -%}
+        {%- if product.selected_or_first_available_variant.barcode != blank -%}
+          <tr>
+            <th scope="row">Barcode</th>
+            <td>{{ product.selected_or_first_available_variant.barcode | escape }}</td>
+          </tr>
+        {%- endif -%}
+        {%- if product.selected_or_first_available_variant.weight > 0 -%}
+          <tr>
+            <th scope="row">Peso</th>
+            <td>
+              {{ product.selected_or_first_available_variant.weight | weight_with_unit: product.selected_or_first_available_variant.weight_unit }}
+            </td>
+          </tr>
+        {%- endif -%}
+        {%- if product.tags.size > 0 -%}
+          <tr>
+            <th scope="row">Tags</th>
+            <td>{{ product.tags | join: ', ' | escape }}</td>
+          </tr>
+        {%- endif -%}
+        {%- comment -%} Demo rows for study store when metafields are empty {%- endcomment -%}
+        <tr>
+          <th scope="row">Garantia</th>
+          <td>12 meses (Wishstore)</td>
+        </tr>
+        <tr>
+          <th scope="row">Conectividade</th>
+          <td>Wi-Fi / Bluetooth / USB-C</td>
+        </tr>
+        <tr>
+          <th scope="row">Nota técnica</th>
+          <td>
+            Preencha o metafield
+            <code>custom.specifications</code>
+            (linhas <em>Label: Value</em>) para sobrescrever esta tabela.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  {%- endif -%}
+</div>

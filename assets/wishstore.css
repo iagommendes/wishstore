@@ -1,0 +1,592 @@
+/* Wishstore — electronics dark-tech layer on Dawn */
+
+:root {
+  --ws-ink: #070a10;
+  --ws-surface: #0e1420;
+  --ws-surface-2: #151d2c;
+  --ws-line: rgba(120, 200, 255, 0.14);
+  --ws-accent: #1ee6b2;
+  --ws-accent-dim: rgba(30, 230, 178, 0.15);
+  --ws-text: #e8eef8;
+  --ws-muted: rgba(232, 238, 248, 0.62);
+  --ws-grid: rgba(80, 160, 255, 0.08);
+  --ws-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Subtle circuit-grid atmosphere on dark pages */
+body.gradient {
+  background-image:
+    linear-gradient(var(--ws-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ws-grid) 1px, transparent 1px),
+    radial-gradient(1200px 600px at 80% -10%, rgba(30, 230, 178, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 10% 20%, rgba(64, 140, 255, 0.1), transparent 50%);
+  background-size: 48px 48px, 48px 48px, auto, auto;
+  background-attachment: fixed;
+}
+
+/* ——— Hero ——— */
+.ws-hero {
+  position: relative;
+  min-height: var(--ws-hero-min, 92vh);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ws-text);
+  background: var(--ws-ink);
+}
+
+.ws-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ws-hero__media img,
+.ws-hero__media .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ws-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(7, 10, 16, 0.35) 0%, rgba(7, 10, 16, 0.82) 55%, rgba(7, 10, 16, 0.96) 100%),
+    linear-gradient(90deg, rgba(7, 10, 16, 0.75) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.ws-hero__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(30, 230, 178, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 230, 178, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  opacity: 0.7;
+  animation: ws-grid-drift 28s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ws-grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 64px 64px, 64px 64px; }
+}
+
+.ws-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 4rem 0 5rem;
+}
+
+.ws-hero__brand {
+  margin: 0 0 1.2rem;
+  font-family: var(--font-heading-family);
+  font-weight: 700;
+  font-size: clamp(4.8rem, 12vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  color: var(--ws-text);
+  animation: ws-rise 0.9s var(--ws-ease) both;
+}
+
+.ws-hero__brand span {
+  color: var(--ws-accent);
+}
+
+.ws-hero__headline {
+  margin: 0 0 1rem;
+  max-width: 28ch;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  animation: ws-rise 0.9s var(--ws-ease) 0.12s both;
+}
+
+.ws-hero__text {
+  margin: 0 0 2.4rem;
+  max-width: 42ch;
+  color: var(--ws-muted);
+  font-size: 1.6rem;
+  animation: ws-rise 0.9s var(--ws-ease) 0.22s both;
+}
+
+.ws-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  animation: ws-rise 0.9s var(--ws-ease) 0.32s both;
+}
+
+.ws-hero__actions .button {
+  min-width: 16rem;
+}
+
+.ws-btn-accent {
+  background: var(--ws-accent) !important;
+  color: var(--ws-ink) !important;
+  border-color: var(--ws-accent) !important;
+}
+
+.ws-btn-ghost {
+  background: transparent !important;
+  color: var(--ws-text) !important;
+  border: 1px solid var(--ws-line) !important;
+}
+
+@keyframes ws-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-hero__grid,
+  .ws-hero__brand,
+  .ws-hero__headline,
+  .ws-hero__text,
+  .ws-hero__actions,
+  .ws-cat__item {
+    animation: none !important;
+  }
+}
+
+/* ——— Category tech grid ——— */
+.ws-cats {
+  padding: 6rem 0;
+  color: var(--ws-text);
+}
+
+.ws-cats__header {
+  margin-bottom: 3.2rem;
+  max-width: 48rem;
+}
+
+.ws-cats__title {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  letter-spacing: -0.03em;
+}
+
+.ws-cats__subtitle {
+  margin: 0;
+  color: var(--ws-muted);
+  font-size: 1.6rem;
+}
+
+.ws-cats__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--ws-line);
+  border: 1px solid var(--ws-line);
+}
+
+@media screen and (min-width: 750px) {
+  .ws-cats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .ws-cats__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ws-cat__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.4rem;
+  min-height: 22rem;
+  padding: 2.4rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--ws-surface);
+  transition: background 0.35s var(--ws-ease), transform 0.35s var(--ws-ease);
+  animation: ws-rise 0.7s var(--ws-ease) both;
+}
+
+.ws-cat__item:nth-child(1) { animation-delay: 0.05s; }
+.ws-cat__item:nth-child(2) { animation-delay: 0.1s; }
+.ws-cat__item:nth-child(3) { animation-delay: 0.15s; }
+.ws-cat__item:nth-child(4) { animation-delay: 0.2s; }
+
+.ws-cat__item:hover {
+  background: var(--ws-surface-2);
+  transform: translateY(-2px);
+}
+
+.ws-cat__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ws-accent);
+}
+
+.ws-cat__label {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+}
+
+.ws-cat__meta {
+  margin: 0.6rem 0 0;
+  color: var(--ws-muted);
+  font-size: 1.3rem;
+}
+
+.ws-cat__cta {
+  font-size: 1.3rem;
+  color: var(--ws-text);
+  opacity: 0.8;
+}
+
+.ws-cat__item:hover .ws-cat__cta {
+  color: var(--ws-accent);
+  opacity: 1;
+}
+
+/* ——— Product specs ——— */
+.ws-specs {
+  padding: 4.8rem 0 6rem;
+  color: var(--ws-text);
+}
+
+.ws-specs__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--ws-line);
+}
+
+.ws-specs__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+.ws-specs__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ws-accent);
+}
+
+.ws-specs__badge::before {
+  content: '';
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--ws-accent);
+  box-shadow: 0 0 0 0.4rem var(--ws-accent-dim);
+}
+
+.ws-specs__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(14, 20, 32, 0.72);
+  border: 1px solid var(--ws-line);
+}
+
+.ws-specs__table th,
+.ws-specs__table td {
+  padding: 1.4rem 1.6rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--ws-line);
+  font-size: 1.45rem;
+}
+
+.ws-specs__table tr:last-child th,
+.ws-specs__table tr:last-child td {
+  border-bottom: 0;
+}
+
+.ws-specs__table th {
+  width: 36%;
+  color: var(--ws-muted);
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(21, 29, 44, 0.65);
+}
+
+.ws-specs__table td {
+  color: var(--ws-text);
+}
+
+.ws-specs__empty {
+  margin: 0;
+  color: var(--ws-muted);
+  font-size: 1.5rem;
+}
+
+/* Featured collection polish on dark */
+.section-featured-collection .title-wrapper-with-link {
+  margin-bottom: 2.4rem;
+}
+
+.card--standard .card__inner {
+  background: var(--ws-surface-2);
+  border: 1px solid var(--ws-line);
+}
+
+@media screen and (max-width: 749px) {
+  .ws-hero {
+    min-height: 88vh;
+    align-items: flex-end;
+  }
+
+  .ws-hero__content {
+    padding: 3rem 0 4rem;
+  }
+
+  .ws-specs__table th,
+  .ws-specs__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .ws-specs__table th {
+    border-bottom: 0;
+    padding-bottom: 0.4rem;
+  }
+
+  .ws-specs__table td {
+    padding-top: 0.4rem;
+  }
+}
+
+/* ——— Cart drawer Wishstore ——— */
+.ws-cart-shipping {
+  margin: 0 0 1.6rem;
+  padding: 1.2rem 0 0;
+  border-top: 1px solid var(--ws-line);
+}
+
+.ws-cart-shipping__label {
+  margin: 0 0 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: var(--ws-muted);
+}
+
+.ws-cart-shipping__track {
+  height: 0.4rem;
+  background: rgba(232, 238, 248, 0.08);
+  border: 1px solid var(--ws-line);
+  overflow: hidden;
+}
+
+.ws-cart-shipping__bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--ws-accent);
+  transition: width 0.45s var(--ws-ease);
+}
+
+.ws-cart-checkout-hint {
+  margin: 1rem 0 0;
+  color: var(--ws-muted);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.cart-drawer .cart__checkout-button.ws-btn-accent {
+  width: 100%;
+}
+
+/* Pre-checkout intercept modal */
+.ws-precheckout {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.ws-precheckout[hidden] {
+  display: none !important;
+}
+
+.ws-precheckout__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 10, 16, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.ws-precheckout__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 52rem);
+  max-height: min(90vh, 72rem);
+  overflow: auto;
+  padding: 2.4rem;
+  color: var(--ws-text);
+  background:
+    linear-gradient(180deg, rgba(21, 29, 44, 0.98), rgba(11, 14, 20, 0.98)),
+    var(--ws-surface);
+  border: 1px solid var(--ws-line);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  animation: ws-rise 0.35s var(--ws-ease) both;
+}
+
+.ws-precheckout__eyebrow {
+  margin: 0 0 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  color: var(--ws-accent);
+}
+
+.ws-precheckout__title {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+
+.ws-precheckout__subtitle {
+  margin: 0 0 2rem;
+  color: var(--ws-muted);
+  font-size: 1.4rem;
+}
+
+.ws-precheckout__meta {
+  margin: 0 0 1.2rem;
+  font-size: 1.5rem;
+}
+
+.ws-precheckout__lines {
+  margin: 0 0 1.2rem;
+  padding: 0;
+  border: 1px solid var(--ws-line);
+}
+
+.ws-precheckout__line {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--ws-line);
+  font-size: 1.35rem;
+}
+
+.ws-precheckout__line:last-child {
+  border-bottom: 0;
+}
+
+.ws-precheckout__line-qty {
+  color: var(--ws-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.ws-precheckout__shipping {
+  margin: 0 0 1.6rem;
+  color: var(--ws-muted);
+  font-size: 1.3rem;
+}
+
+.ws-precheckout__checks {
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ws-precheckout__check {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin: 0 0 0.8rem;
+  font-size: 1.35rem;
+}
+
+.ws-precheckout__check.is-ok span {
+  color: var(--ws-accent);
+}
+
+.ws-precheckout__check.is-bad span {
+  color: #ff6b6b;
+}
+
+.ws-precheckout__skip {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin: 0 0 1.2rem;
+  color: var(--ws-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.ws-precheckout__error {
+  margin: 0 0 1.2rem;
+  color: #ff8f8f;
+  font-size: 1.35rem;
+}
+
+.ws-precheckout__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--ws-line);
+}
+
+body.ws-precheckout-open {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 749px) {
+  .ws-precheckout__line {
+    grid-template-columns: 3.2rem 1fr;
+  }
+
+  .ws-precheckout__line-price {
+    grid-column: 2;
+  }
+
+  .ws-precheckout__footer {
+    flex-direction: column-reverse;
+  }
+
+  .ws-precheckout__footer .button {
+    width: 100%;
+  }
+}

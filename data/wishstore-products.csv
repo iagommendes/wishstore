@@ -1,0 +1,93 @@
+﻿Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare-at Price,Variant Requires Shipping,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Status,Specifications (product.metafields.custom.specifications)
+neophone-x1-pro,NeoPhone X1 Pro,"<p>Smartphone flagship Wishstore com display LTPO 6.7"", câmera tripla e carregamento GaN rápido.</p>",NeoTech,,Smartphones,"smartphones, mobile, flagship, 5g, electronics, destaque",TRUE,Armazenamento,256GB,,,,,WS-NPX1-256,199,shopify,25,deny,manual,4999.00,5499.00,TRUE,TRUE,7891001001001,,,,FALSE,NeoPhone X1 Pro | Wishstore,Flagship NeoPhone X1 Pro com chip NX-A17 e câmera 50MP.,active,"Chipset: NX-A17 Octa
+Display: 6.7 LTPO OLED 120Hz
+RAM: 12GB LPDDR5X
+Camera: 50MP + 12MP + 12MP
+Bateria: 5000mAh
+Carregamento: 65W GaN
+5G: Sim
+Peso: 199g
+Garantia: 12 meses"
+neophone-x1-pro,,,,,,,,Armazenamento,512GB,,,,,WS-NPX1-512,199,shopify,15,deny,manual,5699.00,6199.00,TRUE,TRUE,7891001001002,,,,,,,,
+pulse-12-lite,Pulse 12 Lite,<p>Intermediário leve com ótima autonomia e tela AMOLED 120Hz — perfeito para o dia a dia.</p>,Pulse Mobile,,Smartphones,"smartphones, mobile, intermediario, 5g, electronics",TRUE,Title,Default Title,,,,,WS-P12L-128,178,shopify,40,deny,manual,2199.00,2499.00,TRUE,TRUE,7891001002001,,,,FALSE,Pulse 12 Lite | Wishstore,Smartphone Pulse 12 Lite com bateria de longa duração.,active,"Chipset: Pulse G78
+Display: 6.5 AMOLED 120Hz
+RAM: 8GB
+Armazenamento: 128GB
+Camera: 50MP + 8MP
+Bateria: 5200mAh
+5G: Sim
+Peso: 178g
+Garantia: 12 meses"
+echobuds-pro-anc,EchoBuds Pro ANC,<p>Fones true wireless com cancelamento ativo de ruído e case MagLoad.</p>,Echo Audio,,Fones Bluetooth,"audio, fones, bluetooth, anc, wearables-adjacent, electronics, destaque",TRUE,Cor,Graphite,,,,,WS-EBP-GR,55,shopify,60,deny,manual,899.00,1099.00,TRUE,TRUE,7891001003001,,,,FALSE,EchoBuds Pro ANC | Wishstore,Fones EchoBuds Pro com ANC híbrido e até 30h de bateria.,active,"Driver: 11mm dinamic
+ANC: Hibrido ate -40dB
+Bluetooth: 5.3
+Codec: AAC / LC3
+Bateria earbuds: 8h
+Bateria total: 30h
+Resistencia: IP54
+Latency: 45ms mode game
+Garantia: 12 meses"
+echobuds-pro-anc,,,,,,,,Cor,Arctic White,,,,,WS-EBP-WH,55,shopify,45,deny,manual,899.00,1099.00,TRUE,TRUE,7891001003002,,,,,,,,
+wave-clip-sport,Wave Clip Sport,<p>Fone open-ear esportivo com clip ergonômico e suor à prova d'água IPX7.</p>,Wave Labs,,Fones Bluetooth,"audio, fones, bluetooth, sport, electronics",TRUE,Title,Default Title,,,,,WS-WCS-01,28,shopify,80,deny,manual,449.00,529.00,TRUE,TRUE,7891001004001,,,,FALSE,Wave Clip Sport | Wishstore,Fone open-ear Wave Clip Sport com IPX7.,active,"Formato: Open-ear clip
+Bluetooth: 5.3
+Resistencia: IPX7
+Bateria: 10h
+Case: 30h total
+Microfone: Dual ENC
+Peso: 28g o par
+Garantia: 12 meses"
+voltforce-rx8900-wish,VoltForce RX 8900 Wish Edition,"<p>Placa de vídeo high-end com 16GB GDDR7, ideal para 4K e workloads de render.</p>",VoltForce,,Placas de Video,"gpu, placas-de-video, gaming, pc, electronics, destaque",TRUE,Title,Default Title,,,,,WS-VF8900-16,1850,shopify,8,deny,manual,7499.00,8299.00,TRUE,TRUE,7891001005001,,,,FALSE,VoltForce RX 8900 Wish Edition | Wishstore,GPU VoltForce RX 8900 16GB GDDR7 para 4K.,active,"Arquitetura: Volt RDNA-W
+VRAM: 16GB GDDR7
+Bus: 256-bit
+Boost Clock: 2650 MHz
+TDP: 320W
+Saidas: 3x DP 2.1 / 1x HDMI 2.1
+Alimentacao: 2x 8-pin
+Comprimento: 336mm
+Garantia: 24 meses"
+novacore-w760,NovaCore W760 12GB,<p>GPU intermediária com excelente custo/FPS em 1440p e ray tracing de entrada.</p>,NovaCore,,Placas de Video,"gpu, placas-de-video, gaming, pc, electronics",TRUE,Title,Default Title,,,,,WS-NCW760-12,980,shopify,18,deny,manual,2899.00,3199.00,TRUE,TRUE,7891001006001,,,,FALSE,NovaCore W760 12GB | Wishstore,Placa NovaCore W760 12GB para 1440p.,active,"Arquitetura: Nova Ada-lite
+VRAM: 12GB GDDR6
+Bus: 192-bit
+Boost Clock: 2475 MHz
+TDP: 190W
+Saidas: 3x DP / 1x HDMI
+Alimentacao: 1x 8-pin
+Comprimento: 269mm
+Garantia: 24 meses"
+orbit-watch-ultra,Orbit Watch Ultra,"<p>Smartwatch titanio com GPS dual-band, SpO2 e autonomia de 7 dias.</p>",Orbit Wear,,Wearables,"wearables, smartwatch, fitness, electronics, destaque",TRUE,Pulseira,Trail Loop,,,,,WS-OWU-TL,42,shopify,30,deny,manual,2499.00,2799.00,TRUE,TRUE,7891001007001,,,,FALSE,Orbit Watch Ultra | Wishstore,Smartwatch Orbit Watch Ultra com GPS dual-band.,active,"Display: 1.5 LTPO always-on
+Chip: Orbit S5
+GPS: Dual-band L1+L5
+Sensores: SpO2 ECG Temp
+Bateria: ate 7 dias
+Resistencia: 10ATM + IP6X
+Material: Titanio grau 5
+Compat: iOS / Android
+Garantia: 12 meses"
+orbit-watch-ultra,,,,,,,,Pulseira,Sport Band,,,,,WS-OWU-SB,38,shopify,35,deny,manual,2399.00,2699.00,TRUE,TRUE,7891001007002,,,,,,,,
+slatetab-s10,SlateTab S10,"<p>Tablet 11"" OLED com stylus OptiPen e teclado opcional — produtividade em movimento.</p>",Slate Systems,,Tablets,"tablet, productivity, electronics, mobile",TRUE,Title,Default Title,,,,,WS-STS10-256,480,shopify,22,deny,manual,3499.00,3899.00,TRUE,TRUE,7891001008001,,,,FALSE,SlateTab S10 | Wishstore,Tablet SlateTab S10 OLED 11 polegadas.,active,"Display: 11 OLED 120Hz
+Chip: Slate X3
+RAM: 8GB
+Armazenamento: 256GB
+Battery: 8500mAh
+Stylus: OptiPen 4096
+Conectividade: Wi-Fi 6E / BT 5.3
+Peso: 480g
+Garantia: 12 meses"
+chargecore-gan-100w,ChargeCore GaN 100W,<p>Carregador GaN compacto 100W com 3 portas USB-C e 1 USB-A.</p>,ChargeCore,,Acessorios,"acessorios, carregador, gan, usb-c, electronics",TRUE,Title,Default Title,,,,,WS-CCG-100,185,shopify,100,deny,manual,329.00,399.00,TRUE,TRUE,7891001009001,,,,FALSE,ChargeCore GaN 100W | Wishstore,Carregador GaN 100W multi-porta ChargeCore.,active,"Potencia: 100W total
+Portas: 3x USB-C + 1x USB-A
+Tecnologia: GaN
+PD: 3.1 / PPS
+Protecoes: OVP OCP OTP
+Tamanho: 68x48x32mm
+Peso: 185g
+Garantia: 24 meses"
+mechtype-rgb-pro,MechType RGB Pro,<p>Teclado mecânico hot-swap 75% com switches lubricados de fábrica e cabo USB-C destacável.</p>,MechType,,Perifericos,"perifericos, teclado, mecanico, rgb, pc, electronics",TRUE,Switch,Linear Red,,,,,WS-MTP-LR,920,shopify,28,deny,manual,699.00,799.00,TRUE,TRUE,7891001010001,,,,FALSE,MechType RGB Pro | Wishstore,Teclado mecânico MechType RGB Pro 75%.,active,"Formato: 75%
+Switches: Hot-swap 5-pin
+Layout: ANSI / ISO opcional
+Conexao: USB-C / 2.4G / BT
+Polling: 1000Hz wired
+Keycaps: PBT doubleshot
+Iluminacao: RGB per-key
+Peso: 920g
+Garantia: 24 meses"
+mechtype-rgb-pro,,,,,,,,Switch,Tactile Brown,,,,,WS-MTP-TB,920,shopify,24,deny,manual,699.00,799.00,TRUE,TRUE,7891001010002,,,,,,,,

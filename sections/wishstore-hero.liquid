@@ -1,0 +1,141 @@
+{{ 'wishstore.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="WishstoreHero-{{ section.id }}"
+  class="ws-hero"
+  style="--ws-hero-min: {{ section.settings.min_height }}vh;"
+>
+  <div class="ws-hero__media" aria-hidden="true">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 2400
+        | image_tag:
+          widths: '750, 1100, 1500, 1780, 2000, 2400',
+          sizes: '100vw',
+          loading: 'eager',
+          fetchpriority: 'high',
+          alt: ''
+      }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <div class="ws-hero__overlay"></div>
+  <div class="ws-hero__grid"></div>
+
+  <div class="ws-hero__content page-width">
+    <h1 class="ws-hero__brand">
+      {{ section.settings.brand | default: shop.name | escape }}<span>.</span>
+    </h1>
+
+    {%- if section.settings.headline != blank -%}
+      <h2 class="ws-hero__headline">{{ section.settings.headline | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <p class="ws-hero__text">{{ section.settings.text | escape }}</p>
+    {%- endif -%}
+
+    <div class="ws-hero__actions">
+      {%- if section.settings.button_label != blank -%}
+        <a
+          class="button ws-btn-accent"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.button_label_2 != blank -%}
+        <a
+          class="button ws-btn-ghost"
+          {% if section.settings.button_link_2 != blank %}
+            href="{{ section.settings.button_link_2 }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label_2 | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wishstore Hero",
+  "tag": "section",
+  "class": "section-wishstore-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "brand",
+      "label": "Brand name",
+      "default": "Wishstore"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Tech engineered for everyday performance."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Supporting text",
+      "default": "Smartphones, audio e GPUs com foco em especificações reais — sem ruído."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Primary button label",
+      "default": "Explorar catálogo"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Secondary button label",
+      "default": "Ver lançamentos"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 70,
+      "max": 100,
+      "step": 2,
+      "unit": "vh",
+      "label": "Minimum height",
+      "default": 92
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wishstore Hero"
+    }
+  ]
+}
+{% endschema %}
