@@ -15,7 +15,7 @@ jobs:
     name: Theme Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Theme Check
         uses: shopify/theme-check-action@v2
         with:
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ vars.ENABLE_LIGHTHOUSE == 'true' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Lighthouse
         uses: shopify/lighthouse-ci-action@v1
         with:
