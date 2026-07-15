@@ -13,15 +13,20 @@
   --ws-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Subtle circuit-grid atmosphere on dark pages */
-body.gradient {
+/* Subtle circuit-grid on Wishstore sections only (not every page) */
+.section-wishstore-hero,
+.section-wishstore-categories,
+.section-wishstore-specs {
+  position: relative;
+}
+
+body.gradient.ws-theme {
   background-image:
     linear-gradient(var(--ws-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--ws-grid) 1px, transparent 1px),
     radial-gradient(1200px 600px at 80% -10%, rgba(30, 230, 178, 0.12), transparent 55%),
     radial-gradient(900px 500px at 10% 20%, rgba(64, 140, 255, 0.1), transparent 50%);
   background-size: 48px 48px, 48px 48px, auto, auto;
-  background-attachment: fixed;
 }
 
 /* ——— Hero ——— */
@@ -544,6 +549,7 @@ body.gradient {
   color: #ff6b6b;
 }
 
+.ws-precheckout__ack,
 .ws-precheckout__skip {
   display: flex;
   gap: 0.8rem;
@@ -552,6 +558,10 @@ body.gradient {
   color: var(--ws-muted);
   font-size: 1.3rem;
   cursor: pointer;
+}
+
+.ws-precheckout__ack[hidden] {
+  display: none !important;
 }
 
 .ws-precheckout__error {

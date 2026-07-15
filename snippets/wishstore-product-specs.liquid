@@ -2,13 +2,13 @@
   Renders a technical specs table for Wishstore PDP.
   Priority:
   1. product.metafields.custom.specifications (multi-line "Label: Value")
-  2. product.metafields.descriptors.subtitle lines (fallback-ish)
-  3. Built-in product facts (vendor, type, sku, weight, barcode, tags)
+  2. Built-in product facts (vendor, type, sku, weight, barcode, tags)
 {%- endcomment -%}
 
 {%- liquid
   assign specs_raw = product.metafields.custom.specifications.value | default: product.metafields.custom.specifications
   assign has_custom_specs = false
+  assign parsed_rows = 0
   if specs_raw != blank
     assign has_custom_specs = true
   endif
@@ -17,6 +17,7 @@
 <div class="ws-specs__wrap">
   {%- if has_custom_specs -%}
     <table class="ws-specs__table">
+      <caption class="visually-hidden">{{ product.title | escape }} — especificações técnicas</caption>
       <tbody>
         {%- assign lines = specs_raw | newline_to_br | split: '<br />' -%}
         {%- for line in lines -%}
@@ -26,6 +27,7 @@
             {%- assign label = parts | first | strip -%}
             {%- assign value = clean | remove_first: label | remove_first: ':' | strip -%}
             {%- if label != blank and value != blank -%}
+              {%- assign parsed_rows = parsed_rows | plus: 1 -%}
               <tr>
                 <th scope="row">{{ label | escape }}</th>
                 <td>{{ value | escape }}</td>
@@ -35,8 +37,14 @@
         {%- endfor -%}
       </tbody>
     </table>
+    {%- if parsed_rows == 0 -%}
+      <p class="ws-specs__empty">
+        Metafield <code>custom.specifications</code> presente, mas sem linhas no formato Label: Value.
+      </p>
+    {%- endif -%}
   {%- else -%}
     <table class="ws-specs__table">
+      <caption class="visually-hidden">{{ product.title | escape }} — dados do produto</caption>
       <tbody>
         {%- if product.vendor != blank -%}
           <tr>
@@ -76,24 +84,12 @@
             <td>{{ product.tags | join: ', ' | escape }}</td>
           </tr>
         {%- endif -%}
-        {%- comment -%} Demo rows for study store when metafields are empty {%- endcomment -%}
-        <tr>
-          <th scope="row">Garantia</th>
-          <td>12 meses (Wishstore)</td>
-        </tr>
-        <tr>
-          <th scope="row">Conectividade</th>
-          <td>Wi-Fi / Bluetooth / USB-C</td>
-        </tr>
-        <tr>
-          <th scope="row">Nota técnica</th>
-          <td>
-            Preencha o metafield
-            <code>custom.specifications</code>
-            (linhas <em>Label: Value</em>) para sobrescrever esta tabela.
-          </td>
-        </tr>
       </tbody>
     </table>
+    <p class="ws-specs__empty">
+      Para uma ficha técnica completa, preencha o metafield
+      <code>custom.specifications</code>
+      (uma linha por especificação, no formato Label: Value).
+    </p>
   {%- endif -%}
 </div>

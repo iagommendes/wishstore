@@ -1,0 +1,6 @@
+# Keep study/import assets out of theme push packages
+data/
+.github/
+*.md
+.gitignore
+.shopifyignore

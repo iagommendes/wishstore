@@ -1,6 +1,4 @@
-{{ 'wishstore.css' | asset_url | stylesheet_tag }}
-
-<section id="WishstoreCategories-{{ section.id }}" class="ws-cats color-{{ section.settings.color_scheme }} gradient">
+<div id="WishstoreCategories-{{ section.id }}" class="ws-cats color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
     <div class="ws-cats__header">
       {%- if section.settings.title != blank -%}
@@ -36,7 +34,7 @@
       {%- endfor -%}
     </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {

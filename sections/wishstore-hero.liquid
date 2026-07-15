@@ -1,6 +1,4 @@
-{{ 'wishstore.css' | asset_url | stylesheet_tag }}
-
-<section
+<div
   id="WishstoreHero-{{ section.id }}"
   class="ws-hero"
   style="--ws-hero-min: {{ section.settings.min_height }}vh;"
@@ -68,7 +66,7 @@
       {%- endif -%}
     </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {

@@ -1,5 +1,3 @@
-{{ 'wishstore.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign product_ref = product
   if section.settings.product != blank
@@ -7,7 +5,7 @@
   endif
 -%}
 
-<section
+<div
   id="WishstoreSpecs-{{ section.id }}"
   class="ws-specs color-{{ section.settings.color_scheme }} gradient"
 >
@@ -23,7 +21,7 @@
       {% render 'wishstore-product-specs', product: product_ref %}
     {%- endif -%}
   </div>
-</section>
+</div>
 
 {% schema %}
 {
